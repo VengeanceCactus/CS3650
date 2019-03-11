@@ -1,0 +1,6 @@
+2
+-n
+tail
+|
+tests/sample.txt
+sort

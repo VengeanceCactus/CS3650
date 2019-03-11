@@ -1,0 +1,14 @@
+sample.txt
+-f
+rm
+tmp
+-p
+mkdir
+tmp
+tests/sample.txt
+cp
+tmp
+cd
+sample.txt
+-l
+wc

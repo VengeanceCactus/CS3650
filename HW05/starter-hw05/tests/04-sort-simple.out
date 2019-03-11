@@ -1,0 +1,9 @@
+tmp
+-p
+mkdir
+tests/sample.txt
+tmp/sorted.txt
+-o
+sort
+tmp/sorted.txt
+cat
