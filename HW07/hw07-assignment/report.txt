@@ -1,0 +1,21 @@
+Local Machine: Linux xUbuntu 18.04 LTS, Core i7 3632QM 2.2 Ghz, 1 core, 1 GB RAM
+
+CCIS Server: CentOS 7.5.1804, Intel Xeon e5, 32 cores, 64 GB RAM
+
+=============================================
+Machine | Processes | Median Performance
+---------------------------------------------
+Local   |     1     |        46.33
+        |     4     |        47.51
+        |     8     |        44.19
+---------------------------------------------
+CCIS    |     1     |        15.78
+        |     4     |        15.46
+        |     8     |        17.91
+=============================================
+
+In my efforts I was unable to properly implement the parallel 
+sorting over multiple threads. Because of this, my results
+are effectively what would be achieved by the sample sorting 
+algorithm with only one thread, which are the same if slightly
+slower over multiple partitions. 
