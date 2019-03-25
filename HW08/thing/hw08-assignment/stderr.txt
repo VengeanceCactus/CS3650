@@ -1,0 +1,7 @@
+
+== husky malloc stats ==
+Mapped:   894
+Unmapped: 374
+Allocs:   1001
+Frees:    1001
+Freelen:  10

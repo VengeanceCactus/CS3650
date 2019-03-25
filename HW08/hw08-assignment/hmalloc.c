@@ -115,6 +115,31 @@ take_from_free_list(size_t size){
 void
 organize_list()
 {
+    struct header *a, *b, *c;
+    a = free_list;
+    free_list = NULL;
+    while(a != NULL){
+        c = a;
+        a = a->next;
+        if(free_list != NULL){
+            if(c > free_list){
+                b = free_list;
+                while((b->next != NULL) && (c > b->next)){
+                    b = b->next;
+                }
+                c->next = b->next;
+                b->next = c;
+            }
+            else{
+                c->next = free_list;
+                free_list = c;
+            }
+        }
+        else{
+            c->next = NULL;
+            free_list = c;
+        }
+    }
     struct header* head = free_list;
     size_t total = head->size;
     struct header* next = head->next;
@@ -130,31 +155,6 @@ organize_list()
 	}
         total = head->size;
 	next = head->next;
-    }
-    struct header *a, *b, *c;
-    a = free_list;
-    free_list = NULL;
-    while(a != NULL){
-	c = a;
-	a = a->next;
-	if(free_list != NULL){
-	    if(c > free_list){
-		b = free_list;
-		while((b->next != NULL) && (c > b->next)){
-		    b = b->next;
-		}
-	        c->next = b->next;
-		b->next = c;
-	    }
-	    else{
-		c->next = free_list;
-		free_list = c;
-	    }
-	}
-	else{
-            c->next = NULL;
-	    free_list = c;
-	}
     }
 }
 	
